@@ -1,0 +1,17 @@
+{
+  "name": "fiddler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "watchify src/colorCreator.js -o static/generated/colorCreator.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "color-convert": "^2.0.1"
+  }
+}

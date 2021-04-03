@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Monaco", monospace;
+  font-size: 10px;
+}
+
+h1 {
+  font-family: "Impact", sans-serif;
+  font-size: 4rem;
+}
+
+#container {
+  width: 100%;
+}
+
+#myColorList {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 200px;
+  height: 30%;
+}
+
+.colorRow {
+  display: flex;
+  width: 100%;
+  justify-content: stretch;
+}
+
+.colorBlock {
+  min-height: 80px;
+  flex: 1;
+  margin: 1px;
+  padding: 5px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.colorBlock > p {
+  color: white;
+  background-color: black;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.stealthInput {
+  height: 0;
+  width: 0;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0px;
+}
