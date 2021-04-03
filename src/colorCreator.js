@@ -13,12 +13,16 @@ function colorCreator(baseColorName, value) {
   this.l = l;
 }
 
-colorCreator.prototype.toHex = function () {
-  return convert.hex.hsl(this.h, this.s, this.l);
+colorCreator.prototype.hex = function () {
+  return `#${convert.hsl.hex(this.h, this.s, this.l)}`;
 };
 
-colorCreator.prototype.asHex = function () {
-  return this.h;
+colorCreator.prototype.hsl = function () {
+  return `hsl(${this.h}, ${this.s}%, ${this.l}%)`;
+};
+
+colorCreator.prototype.rgb = function () {
+  return `rgb(${convert.hsl.rgb(this.h, this.s, this.l)})`;
 };
 
 globalThis.colors = colors;
