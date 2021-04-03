@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="static/generated/colorCreator.js"></script>
     <link rel="stylesheet" href="static/index.css" />
-    <title>Tailwind2 Colorpicker</title>
+    <title>Tailwind2 Colors</title>
   </head>
   <body>
-    <h1>Tailwind2 Colorpicker</h1>
+    <h1>Tailwind2 Colors</h1>
 
     <div id="container"></div>
+    <input id="stealthInput" />
+
     <template id="rowTemplate">
       <div class="colorRow"></div>
     </template>
 
     <template id="blockTemplate">
-      <div class="colorBlock"></div>
+      <div class="colorBlock">
+        <h3 class="label" data-format="tailwindName"></h3>
+        <br />
+
+        <span class="label" data-format="hsl"></span><br />
+
+        <span class="label" data-format="hex"></span><br />
+
+        <span class="label" data-format="rgb"></span><br />
+      </div>
     </template>
+
     <script src="static/index.js"></script>
   </body>
 </html>
