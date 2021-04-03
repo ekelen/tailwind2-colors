@@ -1,62 +1,155 @@
-* {
+:root {
+  --tw-blue1: hsla(198.5, 66.5%, 40.9%, 1);
+  --tw-blue2: hsla(163, 57%, 63.5%, 1);
+
+  --gray-100: hsl(240, 4.9%, 95.9%);
+  --gray-200: hsl(240, 6%, 90%);
+  --gray-300: hsl(240, 5%, 83.9%);
+  --gray-400: hsl(240, 5.1%, 64.9%);
+  --gray-500: hsl(240, 3.8%, 46.1%);
+  --gray-600: hsl(240, 5.2%, 34%);
+  --gray-700: hsl(240, 5.4%, 26.1%);
+  --gray-800: hsl(240, 3.8%, 15.9%);
+  --gray-900: hsl(240, 6%, 10%);
+}
+
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: verdana;
-}
-
-h1 {
-  font-family: "Impact", sans-serif;
-
-  color: #ddd;
-  text-transform: lowercase;
-  letter-spacing: -0.2rem;
-  font-family: tahoma;
-  text-shadow: -1px 2px rgba(128, 128, 128, 0.5);
-  font-size: 4rem;
-  margin-bottom: 2rem;
-}
-
-#attr {
-  color: hsla(198.5, 66.5%, 40.9%, 1);
 }
 
 body {
-  font-size: 10px;
+  font-family: verdana;
+  background-color: var(--gray-800);
 }
 
-#container {
+a {
+  color: #444;
+}
+
+header, footer {
+  width: 100%;
+  display: flex;
+}
+
+/* HEADER STYLES */
+
+header, footer {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.5rem 0.75rem 1rem;
+}
+
+#logo {
+  height: 1.75rem;
+  opacity: 0.7;
+  margin-right: 0.5rem;
+}
+
+h1 {
+  font-family: tahoma;
+
+  font-size: 2rem;
+  color: var(--gray-700);
+  text-shadow: 2px 3px var(--gray-900);
+}
+
+.attr {
+  margin-left: auto;
+  align-self: flex-end;
+
+  display: flex;
+
+  align-items: center;
+  height: 1.5rem;
+}
+
+#tw-icon,
+#gh-icon {
+  display: block;
+  height: 100%;
+  margin-right: 5px;
+}
+
+#tw-icon > img {
+  height: 1rem;
+}
+
+#gh-icon {
+  font-size: 0.9rem;
+  color: var(--tw-blue2);
+}
+
+/* BODY STYLES */
+
+main {
   width: 100%;
 }
 
 .colorRow {
   display: flex;
+  margin-bottom: 0.8rem;
 }
 
 .colorBlock {
-  min-height: 80px;
+  min-width: 4rem;
   flex: 1;
 
-  margin: 1px;
+  background-color: var(--gray-500);
+
+  margin: 0rem 0.4rem;
   border-radius: 2px;
   padding: 1rem 0.5rem 1.5rem;
+}
+
+.labels {
+  padding-top: 0.5rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
+@media screen and (max-width: 600px) {
+  .labels {
+    text-overflow: clip;
+  }
+}
+
+/* TEXT INSIDE COLORBLOCKS */
+
 .label {
-  cursor: pointer;
   display: inline;
+  position: relative;
   line-height: 1.5rem;
-  padding: 1px;
+  padding: 0.1rem;
+  font-size: clamp(0.6rem, calc(1 * 1vw), 0.8rem);
+
+  cursor: pointer;
   border-bottom: 1px solid currentcolor;
+
+  transition: background-color 0.3s ease-out, text-indent 0.3s ease-out;
 }
 
 .label:hover {
   background-color: hsla(0, 0%, 100%, 0.2);
   border-radius: 2px;
+  text-indent: 2px;
 }
+
+.label:hover::before {
+  content: "▾";
+  opacity: 0.8;
+  position: absolute;
+  left: 0px;
+  top: -15px;
+}
+
+/* HACK FOR COPY ON CLICK */
 
 #stealthInput {
   height: 0;

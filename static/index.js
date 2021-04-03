@@ -1,9 +1,15 @@
-const createColorRows = (containerEl, colors, colorCreator) => {
-  if (!"content" in document.createElement("template")) {
-    console.warn("Your browser doesn't support HTML templates.");
-    return null;
-  }
+const attributionContents = `
+        <a id="tw-icon" href="https://tailwindcss.com/"
+          ><img src="static/tailwindcss-icon.svg"
+        /></a>
 
+        <a href="https://github.com/ekelen" id="gh-icon"
+          ><i class="fa fa-github"></i
+        ></a>
+
+      `
+
+const createColorRows = (containerEl, colors, colorCreator) => {
   const blockTemplate = document.querySelector("#blockTemplate");
   const rowTemplate = document.querySelector("#rowTemplate");
 
@@ -36,7 +42,7 @@ const createColorRows = (containerEl, colors, colorCreator) => {
   baseColors.forEach(createRow);
 };
 
-const clickOnCopy = function (stealthInput) {
+const addClickCopyListeners = function (stealthInput) {
   document.querySelectorAll(".label").forEach((node) => {
     node.addEventListener("click", (e) => {
       e.preventDefault();
@@ -54,12 +60,22 @@ const clickOnCopy = function (stealthInput) {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  const containerEl = document.querySelector("#container");
+  const containerEl = document.querySelector("main");
   const stealthInput = document.querySelector("#stealthInput");
   const { colors, colorCreator } = globalThis;
   if (!colors || !colorCreator) {
-    containerEl.textContent = "Hmm, we can't find the right JS files.";
+    containerEl.textContent = "Hmm, we can't find the right JS files. ☹️";
+    return;
+  }
+  if (!"content" in document.createElement("template")) {
+    containerEl.textContent = "Your browser doesn't support HTML templates. ☹️";
+    return;
   }
   createColorRows(containerEl, colors, colorCreator);
-  clickOnCopy(stealthInput);
+  addClickCopyListeners(stealthInput);
+
+  const footer = document.querySelector('footer')
+  footer.innerHTML = attributionContents;
+  const header = document.querySelector('header')
+  header.innerHTML += attributionContents;
 });

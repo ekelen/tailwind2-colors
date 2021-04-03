@@ -4,30 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="static/generated/colorCreator.js"></script>
     <link rel="stylesheet" href="static/index.css" />
+    <script src="static/generated/colorCreator.js"></script>
+    <script
+      src="https://kit.fontawesome.com/82b2d09212.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Tailwind2 Colors</title>
   </head>
   <body>
-    <h1>Tailwind2 Colors</h1>
+    <header>
+      <img id="logo" src="static/noun_eyedropper_557608.svg" />
+      <h1>tailwind2 colors</h1>
+      <div class="attr">
+        <!-- (added in index.js) -->
+      </div>
+    </header>
 
-    <div id="container"></div>
+    <main>
+      <!-- (added in index.js) -->
+    </main>
+
+    <footer>
+      <div class="attr">
+        <!-- (added in index.js) -->
+      </div>
+    </footer>
+
     <input id="stealthInput" />
 
+    <!-- Color row -->
     <template id="rowTemplate">
       <div class="colorRow"></div>
     </template>
 
+    <!-- Color square -->
     <template id="blockTemplate">
       <div class="colorBlock">
-        <h3 class="label" data-format="tailwindName"></h3>
+
+        <div class="labels"><h3 class="label" data-format="tailwindName"></h3>
         <br />
-
         <span class="label" data-format="hsl"></span><br />
-
         <span class="label" data-format="hex"></span><br />
-
-        <span class="label" data-format="rgb"></span><br />
+        <span class="label" data-format="rgb"></span><br /></div>
       </div>
     </template>
 
