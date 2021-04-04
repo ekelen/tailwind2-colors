@@ -1,14 +1,17 @@
 {
-  "name": "fiddler",
+  "name": "tailwind2-colors",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "watchify src/colorCreator.js -o static/generated/colorCreator.js"
+    "build": "browserify -p tinyify src/colorCreator.js -o static/generated/colorCreator.js",
+    "start": "watchify src/colorCreator.js -o static/generated/colorCreator.js",
+    "serve": "npm run build && serve"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "tinyify": "^3.0.0",
     "watchify": "^4.0.0"
   },
   "dependencies": {

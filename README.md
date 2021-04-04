@@ -1,12 +1,13 @@
-# fiddler.
+# Tailwind2 Colors
 
-## Install
+A list of colors from the TailwindCSS color palette.
 
-`$ npm i`
+https://ekelen.github.io/tailwind2-colors/
 
-## Run locally
-
-From project root:
-
-- In one terminal window, `$ npm start` (makes commonJs-style dependencies, e.g. required deps from node modules, bundled and available in browser)
-- In another window, `$ live-server` (assuming you have live-server installed.)
+Provides minimal implementation of:
+- [browserify](http://browserify.org/) (with [watchify](https://github.com/browserify/watchify) for development, and [tinyify](https://github.com/browserify/tinyify) to build the production bundle)
+- HTML5 template tags
+- Using `globalThis` to namespace JS globals clearly
+- Adding a linear gradient fill to an SVG from [Noun Project](https://thenounproject.com/)
+- Flaticon CDN
+- Object-oriented vanilla JS

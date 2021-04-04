@@ -3,7 +3,7 @@ const attributionContents = `
           ><img src="static/tailwindcss-icon.svg"
         /></a>
 
-        <a href="https://github.com/ekelen" id="gh-icon"
+        <a href="https://github.com/ekelen/tailwind2-colors/" id="gh-icon"
           ><i class="fa fa-github"></i
         ></a>
 
