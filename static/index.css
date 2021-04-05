@@ -30,14 +30,16 @@ a {
   color: #444;
 }
 
-header, footer {
+header,
+footer {
   width: 100%;
   display: flex;
 }
 
 /* HEADER STYLES */
 
-header, footer {
+header,
+footer {
   display: flex;
   align-items: center;
 

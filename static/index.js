@@ -7,7 +7,7 @@ const attributionContents = `
           ><i class="fa fa-github"></i
         ></a>
 
-      `
+      `;
 
 const createColorRows = (containerEl, colors, colorCreator) => {
   const blockTemplate = document.querySelector("#blockTemplate");
@@ -74,8 +74,8 @@ window.addEventListener("DOMContentLoaded", () => {
   createColorRows(containerEl, colors, colorCreator);
   addClickCopyListeners(stealthInput);
 
-  const footer = document.querySelector('footer')
+  const footer = document.querySelector("footer");
   footer.innerHTML = attributionContents;
-  const header = document.querySelector('header')
+  const header = document.querySelector("header");
   header.innerHTML += attributionContents;
 });
