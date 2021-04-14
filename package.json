@@ -4,15 +4,13 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "browserify -p tinyify src/colorCreator.js -o static/generated/colorCreator.js",
-    "start": "watchify src/colorCreator.js -o static/generated/colorCreator.js",
-    "serve": "npm run build && serve"
+    "build": "browserify -p tinyify src/colorCreator.js -o static/generated/colorCreator.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tinyify": "^3.0.0",
-    "watchify": "^4.0.0"
+    "browserify": "^17.0.0",
+    "tinyify": "^3.0.0"
   },
   "dependencies": {
     "color-convert": "^2.0.1"
