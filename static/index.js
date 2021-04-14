@@ -25,6 +25,11 @@ const createColorRows = (containerEl, colors, colorCreator) => {
     block
       .querySelectorAll(".label")
       .forEach((el) => (el.textContent = formats[el.dataset.format]));
+    block
+      .querySelectorAll(".label")
+      .forEach((el) =>
+        el.setAttribute("data-clipboard-text", formats[el.dataset.format])
+      );
     rowEl.appendChild(block);
   };
 
@@ -42,26 +47,8 @@ const createColorRows = (containerEl, colors, colorCreator) => {
   baseColors.forEach(createRow);
 };
 
-const addClickCopyListeners = function (stealthInput) {
-  document.querySelectorAll(".label").forEach((node) => {
-    node.addEventListener("click", (e) => {
-      e.preventDefault();
-      stealthInput.value = e.target.textContent;
-      stealthInput.focus({ preventScroll: true });
-      stealthInput.select();
-      document.execCommand("copy");
-      e.target.textContent = "Copied!";
-      window.setTimeout(
-        () => (e.target.textContent = stealthInput.value),
-        2000
-      );
-    });
-  });
-};
-
 window.addEventListener("DOMContentLoaded", () => {
   const containerEl = document.querySelector("main");
-  const stealthInput = document.querySelector("#stealthInput");
   const { colors, colorCreator } = globalThis;
   if (!colors || !colorCreator) {
     containerEl.textContent = "Hmm, we can't find the right JS files. ☹️";
@@ -71,11 +58,21 @@ window.addEventListener("DOMContentLoaded", () => {
     containerEl.textContent = "Your browser doesn't support HTML templates. ☹️";
     return;
   }
-  createColorRows(containerEl, colors, colorCreator);
-  addClickCopyListeners(stealthInput);
 
-  const footer = document.querySelector("footer");
+  createColorRows(containerEl, colors, colorCreator);
+  const clipboard = new ClipboardJS(".label");
+  clipboard.on("success", function (e) {
+    e.trigger.textContent = "Copied!";
+    e.trigger.classList.add("onCopy");
+    window.setTimeout(() => {
+      e.trigger.textContent = e.text;
+      e.trigger.classList.remove("onCopy");
+    }, 2000);
+    e.clearSelection();
+  });
+
+  const footer = document.querySelector("footer .attr");
   footer.innerHTML = attributionContents;
-  const header = document.querySelector("header");
+  const header = document.querySelector("header .attr");
   header.innerHTML += attributionContents;
 });
