@@ -33,8 +33,6 @@
       </div>
     </footer>
 
-    <input id="stealthInput" />
-
     <!-- Color row -->
     <template id="rowTemplate">
       <div class="colorRow"></div>
@@ -43,16 +41,23 @@
     <!-- Color square -->
     <template id="blockTemplate">
       <div class="colorBlock">
+        <h3
+          class="label tailwindName"
+          data-format="tailwindName"
+          data-clipboard-text=""
+        ></h3>
         <div class="labels">
-          <h3 class="label" data-format="tailwindName"></h3>
           <br />
-          <span class="label" data-format="hsl"></span><br />
-          <span class="label" data-format="hex"></span><br />
-          <span class="label" data-format="rgb"></span><br />
+          <span class="label" data-format="hsl" data-clipboard-text=""></span
+          ><br />
+          <span class="label" data-format="hex" data-clipboard-text=""></span
+          ><br />
+          <span class="label" data-format="rgb" data-clipboard-text=""></span
+          ><br />
         </div>
       </div>
     </template>
-
+    <script src="static/lib/clipboard.min.js"></script>
     <script src="static/index.js"></script>
   </body>
 </html>
