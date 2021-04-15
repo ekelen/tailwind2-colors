@@ -3,10 +3,8 @@ const attributionContents = `
           ><img src="static/tailwindcss-icon.svg"
         /></a>
 
-        <a href="https://github.com/ekelen/tailwind2-colors/" id="gh-icon"
-          ><i class="fa fa-github"></i
-        ></a>
 
+        <a href="https://github.com/ekelen/tailwind2-colors/" id="gh-icon"><img src="static/github-iconmonstr.svg"></a>
       `;
 
 const createColorRows = (containerEl, colors, colorCreator) => {

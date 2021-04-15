@@ -81,13 +81,13 @@ h1 {
   margin-right: 5px;
 }
 
-#tw-icon > img {
-  height: 1rem;
+#tw-icon > img,
+#gh-icon > img {
+  height: 1.4rem;
 }
 
-#gh-icon {
-  font-size: 0.9rem;
-  color: var(--tw-blue2);
+#gh-icon > img {
+  padding: 0.1rem;
 }
 
 /* BODY STYLES */
