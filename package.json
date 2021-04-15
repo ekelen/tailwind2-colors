@@ -10,9 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^17.0.0",
+    "color-convert": "^2.0.1",
     "tinyify": "^3.0.0"
   },
-  "dependencies": {
-    "color-convert": "^2.0.1"
-  }
+  "dependencies": {}
 }
