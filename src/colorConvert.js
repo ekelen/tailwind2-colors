@@ -1,3 +1,8 @@
+/*
+
+https://css-tricks.com/converting-color-spaces-in-javascript/
+
+*/
 function HSLToHex(h, s, l) {
   s /= 100;
   l /= 100;
