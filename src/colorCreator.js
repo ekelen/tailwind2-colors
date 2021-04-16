@@ -1,52 +1,34 @@
-const convert = require("color-convert");
-const colors = require("./colors").default;
+// const convert = require("color-convert");
+const colorList = require("./colors").default;
+const convert = require("./colorConvert.js").default;
+const { HSLToHex, HSLToRGB } = convert;
 
-function colorCreator(baseColorName, value) {
-  this.hslValueArray = colors[baseColorName][value].split(",").map((v) => +v);
-  this.baseColorName = baseColorName;
-  this.value = value;
+const L_DARK = 12;
+const L_LIGHT = 88;
+const L_MID = 50;
 
-  this.tailwindName = `${baseColorName}-${value}`;
-
-  const [h, s, l] = this.hslValueArray;
-  this.h = h;
-  this.s = s;
-  this.l = l;
-}
-
-colorCreator.prototype.mapToHslArgs = function (
-  h = this.h,
-  s = this.s,
-  l = this.l
-) {
+const mapToHslStr = function (h, s, l) {
   return [h, s + "%", l + "%"];
 };
 
-colorCreator.prototype.hex = function () {
-  return `#${convert.hsl.hex(this.hslValueArray)}`;
-};
+function colorCreator({ twBaseName, twLightness }) {
+  const A = 1;
+  const [h, s, l] = colorList[twBaseName][twLightness]
+    .split(",")
+    .map((v) => +v);
+  const [r, g, b] = HSLToRGB(h, s, l);
 
-colorCreator.prototype.hsl = function () {
-  return `hsl(${this.mapToHslArgs()})`;
-};
-
-colorCreator.prototype.rgb = function () {
-  return `rgb(${convert.hsl.rgb(this.hslValueArray)})`;
-};
-
-colorCreator.prototype.muchContrast = function () {
-  const lightness = this.l <= 50 ? 88 : 12;
-  return `hsl(${this.mapToHslArgs(this.h, this.s, lightness)})`;
-};
-
-colorCreator.prototype.allFormats = function () {
-  return {
-    hex: this.hex(),
-    rgb: this.rgb(),
-    hsl: this.hsl(),
-    tailwindName: this.tailwindName,
+  this.raw = { h, s, l, r, g, b };
+  this.cssVals = {
+    hsl: `hsl(${mapToHslStr(h, s, l)})`,
+    hsla: `hsla(${mapToHslStr(h, s, l, A)})`,
+    rgb: `rgb(${[r, g, b]})`,
+    rgba: `rgba(${[r, g, b, A]})`,
+    maxContrastColor: `hsl(${mapToHslStr(h, s, l < L_MID ? L_LIGHT : L_DARK)})`,
+    hex: HSLToHex(h, s, l),
   };
-};
+  this.tw = { twBaseName, twLightness, twName: `${twBaseName}-${twLightness}` };
+}
 
-globalThis.colors = colors;
+globalThis.colorList = colorList;
 globalThis.colorCreator = colorCreator;

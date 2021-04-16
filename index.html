@@ -6,18 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="static/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <script src="static/generated/colorCreator.js"></script>
-
     <title>Tailwind2 Colors</title>
   </head>
   <body>
     <header>
       <img id="logo" src="static/noun_eyedropper_557608.svg" />
       <h1>tailwind2 colors</h1>
+
       <div class="attr">
         <!-- (added in index.js) -->
       </div>
     </header>
+
+    <nav class="nav">
+      <div class="navTo top">
+        <span>↟</span>
+      </div>
+
+      <div class="navTo bottom">
+        <p>↡</p>
+      </div>
+
+      <!-- (added in index.js) -->
+    </nav>
 
     <main>
       <!-- (added in index.js) -->
@@ -29,6 +40,11 @@
       </div>
     </footer>
 
+    <!-- Swatch -->
+    <template id="swatchTemplate">
+      <div class="swatch"></div>
+    </template>
+
     <!-- Color row -->
     <template id="rowTemplate">
       <div class="colorRow"></div>
@@ -38,21 +54,37 @@
     <template id="blockTemplate">
       <div class="colorBlock">
         <h3
-          class="label tailwindName"
-          data-format="tailwindName"
+          class="label twName"
+          data-color-model="twName"
+          data-content=""
           data-clipboard-text=""
         ></h3>
         <div class="labels">
           <br />
-          <span class="label" data-format="hsl" data-clipboard-text=""></span
+          <span
+            class="label"
+            data-color-model="hsl"
+            data-clipboard-text=""
+            data-content=""
+          ></span
           ><br />
-          <span class="label" data-format="hex" data-clipboard-text=""></span
+          <span
+            class="label"
+            data-color-model="hex"
+            data-clipboard-text=""
+            data-content=""
+          ></span
           ><br />
-          <span class="label" data-format="rgb" data-clipboard-text=""></span
+          <span
+            class="label"
+            data-color-model="rgb"
+            data-clipboard-text=""
+          ></span
           ><br />
         </div>
       </div>
     </template>
+    <script src="static/generated/colorCreator.js"></script>
     <script src="static/lib/clipboard.min.js"></script>
     <script src="static/index.js"></script>
   </body>
