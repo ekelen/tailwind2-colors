@@ -1,7 +1,5 @@
-// const convert = require("color-convert");
 const colorList = require("./colors").default;
 const convert = require("./colorConvert.js").default;
-const { HSLToHex, HSLToRGB } = convert;
 
 const L_DARK = 12;
 const L_LIGHT = 88;
@@ -16,7 +14,7 @@ function colorCreator({ twBaseName, twLightness }) {
   const [h, s, l] = colorList[twBaseName][twLightness]
     .split(",")
     .map((v) => +v);
-  const [r, g, b] = HSLToRGB(h, s, l);
+  const [r, g, b] = convert.HSLToRGB(h, s, l);
 
   this.raw = { h, s, l, r, g, b };
   this.cssVals = {
@@ -25,7 +23,7 @@ function colorCreator({ twBaseName, twLightness }) {
     rgb: `rgb(${[r, g, b]})`,
     rgba: `rgba(${[r, g, b, A]})`,
     maxContrastColor: `hsl(${mapToHslStr(h, s, l < L_MID ? L_LIGHT : L_DARK)})`,
-    hex: HSLToHex(h, s, l),
+    hex: convert.HSLToHex(h, s, l),
   };
   this.tw = { twBaseName, twLightness, twName: `${twBaseName}-${twLightness}` };
 }
