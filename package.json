@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "browserify -p tinyify src/colorCreator.js -o static/generated/colorCreator.min.js"
+    "build": "browserify -p tinyify src/colorCreator.js -o static/js/colorCreator.min.js"
   },
   "author": "",
   "license": "ISC",

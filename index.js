@@ -4,11 +4,11 @@ const className = (className) => `.${className}`;
 
 const attributionContents = `
         <a id="tw-icon" href="https://tailwindcss.com/"
-          ><img src="static/tailwindcss-icon.svg"
+          ><img src="static/icon/tailwindcss-icon.svg"
         /></a>
 
 
-        <a href="https://github.com/ekelen/tailwind2-colors/" id="gh-icon"><img src="static/github-iconmonstr.svg"></a>
+        <a href="https://github.com/ekelen/tailwind2-colors/" id="gh-icon"><img src="static/icon/github-iconmonstr.svg"></a>
       `;
 
 const createSwatches = () => {
