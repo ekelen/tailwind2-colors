@@ -51,7 +51,7 @@ footer {
   display: flex;
   align-items: center;
 
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
   padding: 0.5rem 0.5rem 0.75rem 1rem;
 }
 
@@ -61,6 +61,7 @@ header {
 
 footer {
   margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 #logo {
@@ -70,7 +71,7 @@ footer {
 
 h1 {
   font-size: 2rem;
-  color: var(--gray-600);
+  color: var(--gray-300);
   text-shadow: 2px 3px var(--gray-900);
 }
 
